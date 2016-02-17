@@ -1,5 +1,6 @@
-<h4>Title:</h4>
-<p><%= @article.title %></p>
-<h4>Description:</h4>
-<p><%= @article.description %></p>
-<%= link_to 'Index', articles_path %>
+<h1><%= @article.title %></h1>
+<p><strong>Description: </strong><%= @article.description %></p>
+
+<p>
+  <%= link_to 'Index', articles_path %> | <%= link_to 'Edit', edit_article_path(@article) %>
+</p>
