@@ -2,13 +2,15 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#logo {
-  float: left;
+.title {
   font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
+}
+
+#logo {
+  float: left;
+  color: #fff;
 }
 
 #logo:hover {
@@ -16,38 +18,43 @@
   text-decoration: none;
 }
 
-.center {
-  text-align: center;
+
+.content {
+  min-height: 575px;
+  padding-bottom: 20px;
 }
 
-.jumbotron {
-  background-image: asset-url('IMG_6956.JPG');
-  background-size: cover;
-  height: 550px;
+#welcome {
+  padding-top: 100px;
 }
 
-.jumbotron h1 {
-  color: #fff;
+#welcome h1 {
+  color: black;
   text-align: center;
   margin-bottom: 30px;
   letter-spacing: -1px;
   font-weight: bold;
 }
 
-.btn-xlarge {
-  font-size: 1.7em;
-  background-color: black;
+#welcome a {
+  color: green;
+  background-color: white;
+  border: 2px solid green;
+  font-size: 1em;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#welcome a:hover {
+  color: white;
+  background-color: green;
+  border: 2px solid white;
 }
 
 .footer {
-  margin-top: 15px;
-  padding-top: 5px;
+  height: 52px;
+  padding-top: 15px;
   border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a:hover {
-  color: #222;
 }
 
 footer small {
@@ -62,4 +69,26 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+.form-header {
+  margin: 30px;
+}
+
+.article-title {
+  font-weight: bold;
+  font-size: 1.5em;
+
+}
+
+.article-body {
+  font-size: 1.2em;
+  border-top: 1px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.article-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
 }

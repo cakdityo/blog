@@ -1,26 +1,23 @@
-<h1>List Articles</h1>
+<h1 class="form-header text-center">
+  <strong>List all articles</strong>
+</h1>
 
-<table>
-  <tr>
-    <td><strong>Title</strong></td>
-    <td><strong>Description</strong></td>
-    <td><strong>Created At</strong></td>
-    <td><strong>Updated At</strong></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <td><%= article.created_at.strftime('%F, %T') %></td>
-    <td><%= article.updated_at.strftime('%F, %T') %></td>
-    <td><%= link_to 'Show', article_path(article) %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Remove', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-  </tr>
-  <% end %>
-</table>
-
-<p><%= link_to 'Create new article', new_article_path %></p>
+<% @articles.each do |article| %>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="well well-lg">
+      <div class="article-title">
+        <%= link_to article.title, article_path(article) %>
+      </div>
+      <div class="article-body">
+        <%= truncate(article.description, length:100) %>
+      </div>
+      <div class="article-actions">
+        <%= link_to 'Edit this article', edit_article_path(article), class: "btn btn-xs btn-primary" %>
+        <%= link_to 'Delete this article', article_path(article), method: :delete, class: "btn btn-xs btn-danger",
+                                                                   data: {confirm: "Are you sure?"} %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -1,20 +1,32 @@
-<% if @article.errors.any? %>
-<%= pluralize @article.errors.count, 'error' %> prohibited this article from being saved:
-<ul>
-<% @article.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
-<% end %>
-</ul>
-<% end %>
+<%= render 'shared/errors', obj: {model: @article, name: 'article'} %>
 
-<%= form_for @article do |f| %>
-<p><%= f.label :title %></p>
-<p><%= f.text_field :title %></p>
+<div class="row">
+  <div class="col-sm-12">
+    <%= form_for(@article, html: {class: "form-horizontal", role: "form"}) do |f| %>
 
-<p><%= f.label :description %></p>
-<p><%= f.text_area :description %></p>
+    <div class="form-group">
+      <%= f.label :title, class: "col-sm-2 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
+      </div>
+    </div>
 
-<p><%= f.submit %></p>
-<% end %>
+    <div class="form-group">
+      <%= f.label :description, class: "col-sm-2 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description of article" %>
+      </div>
+    </div>
 
-<p><%= link_to 'Back to index', articles_path %></p>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= f.submit class: "btn btn-success btn-lg" %>
+      </div>
+    </div>
+
+    <% end %>
+    <div class="text-center">
+      [<%= link_to 'Cancel and back to articles listing', articles_path %>]
+    </div>
+  </div>
+</div>
