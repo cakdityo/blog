@@ -1,1 +1,6 @@
 Hello I'm a "newbie on rails"
+
+Validations for User class:
+    - Username must be present and unique (min 3 characters, max 25 characters)
+    - Email must be present and unique
+    - validate email format using EMAIL_VALID_REGEX
