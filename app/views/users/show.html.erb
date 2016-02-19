@@ -1,1 +1,12 @@
-<%= @user.username %>
+<div class="row form-header">
+  <div class="col-sm-2 col-sm-offset-2 center">
+    <%= gravatar_for(@user, size: 150 )%>
+  </div>
+  <div class="col-sm-4 center">
+    <h1>
+      <strong><%= @user.username %></strong>
+    </h1>
+  </div>
+</div>
+
+<%= render 'articles/article', obj: @user.articles %>
