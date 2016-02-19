@@ -3,10 +3,15 @@
 </h1>
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
+    Created <%= time_ago_in_words(@article.created_at) %> ago
+    <% if @article.created_at != @article.updated_at %>
+        , Edited <%= time_ago_in_words(@article.updated_at) %> ago
+    <% end %>
+    by <strong><%= @article.user.username %> </strong>
     <div class="article-body">
       <%= simple_format(@article.description) %>
     </div>
-    <div class="article-actions">
+    <div class="article-footer">
       <%= link_to 'Edit this article', edit_article_path(@article), class: "btn btn-xs btn-primary" %>
       <%= link_to 'Delete this article', article_path(@article), method: :delete, class: "btn btn-xs btn-danger",
     data: {confirm: "Are you sure?"} %>
