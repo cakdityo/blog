@@ -1,0 +1,19 @@
+<h1 class="form-header text-center">
+  <strong>Our Writers</strong>
+</h1>
+
+<div align="center" class="row">
+  <% @users.each do |user| %>
+    <div class="col-md-4 thumbnail user-block">
+      <div class="article-title">
+        <%= user.username %>
+      </div>
+      <div class="article-body">
+        <%= link_to gravatar_for(user, size:150), user_path(user) %>
+      </div>
+      <div class="article-footer">
+        <%= link_to pluralize(user.articles.count, 'article'), user_path(user), class: "btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>

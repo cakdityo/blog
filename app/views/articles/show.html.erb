@@ -1,6 +1,14 @@
-<h1 class="form-header text-center">
-  <strong><%= @article.title %></strong>
-</h1>
+<div align="center" class="row form-header">
+  <div class="col-sm-1 col-sm-offset-2">
+    <%= link_to gravatar_for(@article.user), user_path(@article.user) %>
+  </div>
+  <div class="col-sm-9">
+    <h1 class="text-left">
+      <strong><%= @article.title %></strong>
+    </h1>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
     Created <%= time_ago_in_words(@article.created_at) %> ago
