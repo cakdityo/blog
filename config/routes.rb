@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :articles
-  resources :users, except: [:new]
-
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
   get 'signup', to: 'users#new'
+  resources :users, except: [:new]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,4 @@
 <div id="welcome" class="text-center">
-  <h1>Skuy <%= link_to "Sign up", "#", class: "btn btn-default btn-lg" %></h1>
+  <h1>Skuy <%= link_to("Sign up", signup_path, class: "btn btn-default btn-lg") unless logged_in? %></h1>
   by<span class="title"> Adityo Rancaka </span>
 </div>

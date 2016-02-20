@@ -79,7 +79,6 @@ footer ul li {
 .article-title {
   font-weight: bold;
   font-size: 1.5em;
-  padding-top: 10px;
   padding-bottom: 10px;
 }
 
@@ -94,4 +93,8 @@ footer ul li {
   border-top: 1px solid #eaeaea;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.navbar-avatar {
+  margin: -10px;
 }
