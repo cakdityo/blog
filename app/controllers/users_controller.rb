@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
+  before_action :author?, only: [:edit, :update]
+  before_action :restrict_user, only: [:new, :create]
 
   def index
     @users = User.all
@@ -37,6 +39,13 @@ class UsersController < ApplicationController
   private
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def author?
+    if current_user != @user
+      flash[:danger] = "Sorry, you don't have privilege to do that"
+      redirect_to articles_path
+    end
   end
 
   def user_params

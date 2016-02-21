@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :restrict_user, only: [:new, :create]
+
   def new
 
   end

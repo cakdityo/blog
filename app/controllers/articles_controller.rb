@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
-  before_action :require_user, only: [:new, :edit, :destroy]
+  before_action :require_user, only: [:new, :create]
+  before_action :author?, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.paginate(page: params[:page], per_page: 5)
@@ -14,6 +15,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -45,6 +47,13 @@ class ArticlesController < ApplicationController
   private
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def author?
+    if current_user != @article.user
+      flash[:danger] = "Sorry, you don't have privilege to do that"
+      redirect_to articles_path
+    end
   end
 
   def article_params

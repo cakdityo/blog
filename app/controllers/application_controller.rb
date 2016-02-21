@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  def restrict_user
+    if logged_in?
+      flash[:danger] = "You have logged in, please log out first"
+      redirect_to root_path
+    end
+  end
 end
