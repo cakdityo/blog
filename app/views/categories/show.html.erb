@@ -1,0 +1,17 @@
+<% if @category_articles.any? %>
+    <h1 class="form-header text-center">
+      <strong><%= pluralize @category_articles.count, "Article" %> related to <%= @category.name %></strong>
+    </h1>
+
+    <div align="center">
+      <%= will_paginate @category_articles %>
+    </div>
+    <%= render 'articles/article', obj: @category_articles %>
+    <div align="center">
+      <%= will_paginate @category_articles %>
+    </div>
+<% else %>
+    <h1 class="form-header text-center">
+      <strong>No articles yet related to <%= @category.name %></strong>
+    </h1>
+<% end %>
