@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   root 'welcome#home'
 
+  # articles routes
   resources :articles
+
+  # categories routes
+  resources :categories
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'

@@ -1,0 +1,31 @@
+<%= render 'shared/errors', obj: @category %>
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <%= form_for(@category, html: {class: "form-horizontal", role: "form"}) do |f| %>
+
+        <div class="form-group">
+          <%= f.label :name, class: "col-sm-2 control-label" %>
+          <div class="col-sm-8">
+            <%= f.text_field :name, class: "form-control", placeholder: "Name of category", autofocus: true %>
+          </div>
+        </div>
+
+        <div align="center" class="form-group">
+          <div class="col-sm-offset-2 col-sm-8">
+            <%= f.submit class: "btn btn-primary btn-lg" %>
+          </div>
+        </div>
+
+    <% end %>
+
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+    <%= render 'category', obj: @categories %>
+    <div align="center">
+      <%= will_paginate %>
+    </div>
+
+  </div>
+</div>
