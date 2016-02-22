@@ -9,7 +9,7 @@
           <div class="article-body">
             <%= truncate(article.description, length:96) %>
             <% if article.categories.any? %>
-                <p>Categories: <%= render article.categories %></p>
+                <p><%= render article.categories %></p>
             <% end %>
           </div>
           <div class="article-footer row">
