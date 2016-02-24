@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160222133917) do
     t.datetime "updated_at",  null: false
     t.text     "description"
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   create_table "categories", force: :cascade do |t|
